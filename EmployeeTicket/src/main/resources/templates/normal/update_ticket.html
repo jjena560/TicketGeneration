@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" xmlns:th="http://www.thymleaf.org"
+	th:replace="normal/user_base::Layout(~{::section})" />
+
+</head>
+
+<body>
+
+	<!-- this section will go into the base.html -->
+	<section>
+		<div class="card mr-3 ml-3">
+			<div class="card-body">
+				<h1 class="text-center">Update Ticket</h1>
+
+				<div class="container-fluid mt-1">
+					<div class="row">
+						<div class="col-md-10 offset-md-2">
+							<form action="#" th:object="${ticket}"
+								enctype="multipart/form-data" method="post"
+								th:action="@{/user/do_update_ticket}" class="mt-2">
+								
+								<input type = "hidden" th:value = "${ticket.ticketId}" name = "ticketId" />
+
+
+								<!-- Title -->
+								<div class="input-group mb-2">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<i class="fa fa-plus"></i>
+										</div>
+									</div>
+
+									<input th:value = "${ticket.category}" type="text" id="category" name="category"
+										 class="form-control" required/>
+								</div>
+
+								<!-- Description -->
+								<div class="input-group mb-2 ml-1">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<i class="fa-solid fa-prescription-bottle"></i>
+										</div>
+									</div>
+
+									<textarea th:text = "${ticket.description}" placeholder="Enter Description" class="form-control" id="description"
+										name="description" rows="3" required></textarea>
+								</div>
+								
+								<div class = "container text-center">
+									<button class = "btn btn-outline-primary">Update Ticket</button>
+								</div>
+
+
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+</body>
+
+</html>

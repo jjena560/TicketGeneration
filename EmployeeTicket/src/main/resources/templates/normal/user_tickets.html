@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" xmlns:th="http://www.thymleaf.org"
+	th:replace="normal/user_base::Layout(~{::section})" />
+<title th:text="${title}">Employee Tickets</title>
+<style>
+body {
+	background-image: none;
+}
+</style>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3">
+			<div class="card-body">
+				<h1 class="text-center">Your Tickets</h1>
+			</div>
+		</div>
+
+		<table class="table table-bordered table-dark">
+			<thead>
+				<tr>
+					<th scope="col">Ticket ID</th>
+					<th scope="col">Category</th>
+					<th scope="col">Description</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="c : ${tickets}">
+					<th scope="row" th:text="${'NAG2021' + c.ticketId}"></th>
+					<td><a th:href="@{'/user/ticket/' + ${c.ticketId}}"> <span
+							th:text="${c.category}"></span>
+					</a></td>
+					<td th:text="${c.description}"></td>
+					<td><a class="btn btn-danger"
+						th:href="@{'/user/delete/' + ${c.ticketId}}">Delete</a>
+
+						<form class = "mt-2" th:action = "@{'/user/ticket/' +${c.ticketId}}">
+
+							<button type = submit class="btn btn-primary btn-sm">Update</button>
+						</form></td>
+				</tr>
+			</tbody>
+		</table>
+
+
+	</section>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymleaf.org"
+	th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="utf-8" />
+</head>
+
+<body>
+	<section class = "banner d-flex justify-content-center align-items-center">
+		<div class="text-center">
+			<h1 style="font-size: 30px; text-shadow: 20px; text-align: justify">
+				<b>The Community</b>
+			</h1>
+			<h5 style="font-size: 15px; text-shadow: 20px; text-align: justify">
+				Find Solutions. Ask Questions, Share Ideas. Connect with users
+				across the globe.</h5>
+			<button th:if = "${session.employee}" class = "btn-btn-primary btn-large text-white">Raise a Ticket</button>
+		</div>
+	</section>
+
+</body>
+
+</html>

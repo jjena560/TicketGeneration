@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Employee {
 
@@ -115,6 +117,7 @@ public class Employee {
 		this.about = about;
 	}
 
+	@JsonManagedReference
 	public List<Ticket> getTickets() {
 		return tickets;
 	}

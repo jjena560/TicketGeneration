@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Ticket {
 
@@ -46,6 +48,7 @@ public class Ticket {
 		this.description = description;
 	}
 
+	@JsonBackReference
 	public Employee getEmployee() {
 		return employee;
 	}
